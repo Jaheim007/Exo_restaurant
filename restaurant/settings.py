@@ -10,7 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
-from pathlib import Path
+from pathlib import Path 
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,15 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'menu.apps.MenuConfig',
-    'about.apps.AboutConfig',
-    'ClotFovouis.apps.ClotfovouisConfig',
-    'Banner.apps.BannerConfig',
-    'contact.apps.ContactConfig',
-    'NewsLetter.apps.NewsletterConfig',
-    'Site.apps.SiteConfig',
-    'ReseauSocial.apps.ReseausocialConfig',
-    'blog.apps.BlogConfig',
+    'SiteApp.apps.SiteappConfig',
+    'ServicesApp.apps.ServicesappConfig',
 ]
 
 MIDDLEWARE = [
@@ -126,7 +120,14 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = BASE_DIR / 'media'
+
+MEDIA_ROOT =  os.path.join(BASE_DIR, 'image') 
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
